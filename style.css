@@ -1,1 +1,150 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
+body{
+font-family:'Poppins',sans-serif;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff4d88,#ff7eb3,#ffc6d9);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.glass{
+width:90%;
+max-width:420px;
+padding:30px;
+border-radius:30px;
+text-align:center;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(18px);
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+border:1px solid rgba(255,255,255,.25);
+animation:pop .8s;
+}
+
+@keyframes pop{
+from{
+opacity:0;
+transform:scale(.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.profile{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid white;
+box-shadow:0 0 35px rgba(255,255,255,.6);
+margin-bottom:18px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+.small{
+color:white;
+font-size:18px;
+}
+
+.title{
+font-family:'Dancing Script',cursive;
+font-size:45px;
+margin-top:8px;
+color:white;
+}
+
+.title span{
+color:#ffd700;
+}
+
+.typing{
+margin-top:10px;
+font-size:20px;
+color:white;
+}
+
+.msg{
+margin-top:20px;
+line-height:1.8;
+color:white;
+font-size:17px;
+}
+
+.buttons{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:20px;
+position:relative;
+}
+
+button{
+padding:14px 32px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+#yes{
+background:#00c853;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.08);
+}
+
+#no{
+background:#ff1744;
+color:white;
+position:relative;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+}
+
+.heart{
+position:fixed;
+font-size:22px;
+animation:rise linear forwards;
+pointer-events:none;
+}
+
+@keyframes rise{
+0%{
+transform:translateY(0) scale(.8);
+opacity:1;
+}
+100%{
+transform:translateY(-100vh) scale(1.6);
+opacity:0;
+}
+}
