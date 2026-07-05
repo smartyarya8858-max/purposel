@@ -80,7 +80,7 @@ padding:25px;">
 
 <div>
 
-<img src="parvi.jpg"
+<img src="WhatsApp Image 2026-07-03 at 14.50.20 (1).jpeg"
 style="
 width:220px;
 height:220px;
