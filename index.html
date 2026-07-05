@@ -3,251 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Parvi ❤️</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-}
+<link rel="stylesheet" href="style.css">
 
-body{
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ff5f9e,#ffc3d9,#ffe6ee);
-    position:relative;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-/* Floating Hearts */
-.heart{
-    position:absolute;
-    color:#ff2d55;
-    font-size:24px;
-    animation:float 8s linear infinite;
-    opacity:.8;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh) scale(.8);
-        opacity:0;
-    }
-    20%{opacity:1;}
-    to{
-        transform:translateY(-120px) scale(1.6);
-        opacity:0;
-    }
-}
-
-.card{
-    width:90%;
-    max-width:520px;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(10px);
-    border-radius:25px;
-    padding:35px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,.2);
-}
-
-h1{
-    color:#ff2d55;
-    margin-bottom:15px;
-}
-
-p{
-    color:#444;
-    font-size:18px;
-    margin-bottom:25px;
-}
-
-.buttons{
-    position:relative;
-    height:80px;
-}
-
-button{
-    padding:14px 32px;
-    font-size:20px;
-    border:none;
-    border-radius:15px;
-    cursor:pointer;
-    transition:.25s;
-}
-
-#yes{
-    background:#28a745;
-    color:white;
-}
-
-#yes:hover{
-    transform:scale(1.08);
-}
-
-#no{
-    position:absolute;
-    left:180px;
-    background:#ff3b30;
-    color:white;
-}
-
-canvas{
-    position:fixed;
-    top:0;
-    left:0;
-    pointer-events:none;
-}
-</style>
 </head>
 
 <body>
 
-<canvas id="canvas"></canvas>
+<div id="hearts"></div>
 
-<div class="card">
-<h1>💖 Hey Parvi 💖</h1>
+<div class="glass">
 
-<p>
-Since the day I met you,<br>
-you've become someone really special to me. ❤️<br><br>
+<img src="parvi.jpg" class="profile">
 
-Will you be my girlfriend? 🌹
+<h3 class="small">❤️ Dear Parvi ❤️</h3>
+
+<h1 class="title">
+January without <span>ary</span>...
+</h1>
+
+<p class="typing">
+...is just <b>Jan</b> ❤️
+</p>
+
+<p class="msg">
+
+From the moment I saw you,
+
+something changed.
+
+I don't know what the future holds,
+
+but I know one thing...
+
+I genuinely like you.
+
+🌹
+
 </p>
 
 <div class="buttons">
-<button id="yes">Yes ❤️</button>
-<button id="no">No 💔</button>
-</div>
 
-<br>
+<button id="yes">
+YES ❤️
+</button>
 
-<small>Choose wisely 😄💕</small>
-
-</div>
-
-<!-- Background Music -->
-<audio autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-// Floating hearts
-for(let i=0;i<40;i++){
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="❤️";
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration=(5+Math.random()*5)+"s";
-    h.style.fontSize=(18+Math.random()*25)+"px";
-    h.style.animationDelay=Math.random()*5+"s";
-    document.body.appendChild(h);
-}
-
-// No button runs away
-const no=document.getElementById("no");
-
-function moveButton(){
-    const x=Math.random()*(window.innerWidth-120);
-    const y=Math.random()*(window.innerHeight-70);
-
-    no.style.position="fixed";
-    no.style.left=x+"px";
-    no.style.top=y+"px";
-}
-
-no.addEventListener("mouseover",moveButton);
-no.addEventListener("touchstart",(e)=>{
-    e.preventDefault();
-    moveButton();
-});
-
-// Confetti
-const canvas=document.getElementById("canvas");
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-function confetti(){
-
-let arr=[];
-
-for(let i=0;i<250;i++){
-arr.push({
-x:Math.random()*canvas.width,
-y:-20,
-r:Math.random()*6+4,
-dx:(Math.random()-0.5)*4,
-dy:Math.random()*4+3
-});
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-arr.forEach(c=>{
-ctx.beginPath();
-ctx.arc(c.x,c.y,c.r,0,Math.PI*2);
-ctx.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
-ctx.fill();
-
-c.x+=c.dx;
-c.y+=c.dy;
-});
-
-requestAnimationFrame(draw);
-
-}
-
-draw();
-
-}
-
-document.getElementById("yes").onclick=function(){
-
-confetti();
-
-setTimeout(()=>{
-document.body.innerHTML=`
-<div style="
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff5f9e,#ff85b3);
-color:white;
-text-align:center;
-font-family:Arial;
-padding:20px;">
-<div>
-
-<h1 style="font-size:55px;">💖 YAYYY!! 💖</h1>
-
-<h2>Thank You Parvi ❤️</h2>
-
-<h2>You Just Made Me The Happiest Person! 🥹</h2>
-
-<h1>🌹 I Promise To Always Respect You 🌹</h1>
-
-<p style="font-size:22px;margin-top:20px;">
-❤️ Forever Starts Today ❤️
-</p>
+<button id="no">
+NO 💔
+</button>
 
 </div>
+
 </div>
-`;
-},1200);
 
-};
+<canvas id="canvas"></canvas>
 
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
